@@ -1,3 +1,4 @@
+setwd("~/R/COURSES/EXP/ELECTRICITY")
 df <- read.table("household_power_consumption.txt", sep = ";",  header = T, na.strings = "?")
 str(df)
 

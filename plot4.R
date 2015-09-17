@@ -5,14 +5,14 @@ str(df)
 
 df1 <- subset(df, as.Date(Date, "%d/%m/%Y") == as.Date("01/02/2007", "%d/%m/%Y") |
                 as.Date(Date, "%d/%m/%Y") == as.Date("02/02/2007", "%d/%m/%Y"))
+df1$d_and_t <- as.POSIXct(strptime(paste(df1$Date, df1$Time), "%d/%m/%Y %H:%M:%S"))
 
-par(mfrow = c(2, 2), cex = 0.6)
 
 png(filename = "plot4.png", width = 480, height = 480,
     units = "px", pointsize = 12, bg = "white", res = NA,
     restoreConsole = TRUE)
 
-
+par(mfrow = c(2, 2), cex = 0.6)
 
 #1
 plot(df1$d_and_t, (as.numeric(df1$Global_active_power)), type = "l",  xlab = "", ylab = "Global Active Power (Kilowatts)")
